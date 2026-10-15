@@ -1,0 +1,30 @@
+[
+  {
+    "id": "c1f7b9a2-3e5d-4a18-9c2f-8d6e4b5a3c1f",
+    "name": "Marcus Lim",
+    "email": "marcus.lim@example.com",
+    "phone_number": 91234567,
+    "deleted": false
+  },
+  {
+    "id": "a8d2c4e6-9b1f-4d3a-8c5e-7f1a2b3c4d5e",
+    "name": "Nurul Aminah",
+    "email": "nurul.aminah@example.com",
+    "phone_number": 87654321,
+    "deleted": false
+  },
+  {
+    "id": "f3b1e5a9-4c2d-4f8a-9e6b-1d7c3a2b5e8f",
+    "name": "Priya Sharma",
+    "email": "priya.sharma@example.com",
+    "phone_number": 98761234,
+    "deleted": false
+  },
+  {
+    "id": "e5c3a1b7-2d4f-4a9c-8e1f-6b5d7c3a2f9e",
+    "name": "Jonathan Teo",
+    "email": "jonathan.teo@example.com",
+    "phone_number": 81239876,
+    "deleted": false
+  }
+]
