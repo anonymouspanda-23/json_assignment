@@ -1,13 +1,13 @@
 import type { User } from "./user.type.ts";
 import type { UserService } from "./userService.ts";
-import type { JsonUserRepository } from "./jsonUserRepository.ts";
 import { NotFoundError } from "../../shared/utils/errors.ts";
 import { randomUUID } from "crypto";
+import type { UserRepository } from "./userRepository.ts";
 
 export class UserServiceImpl implements UserService {
-  private userRepository: JsonUserRepository;
+  private userRepository: UserRepository;
 
-  constructor(userRepository: JsonUserRepository) {
+  constructor(userRepository: UserRepository) {
     this.userRepository = userRepository;
   }
 
