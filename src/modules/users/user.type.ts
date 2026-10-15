@@ -6,7 +6,7 @@ export const UserSchema = z.strictObject({
   email: z.email({ error: "Email is required." }),
   phone_number: z
     .string()
-    .regex(/(?:\\+?65[\\s]?)?[3689]\\d{3}[\\s]?\\d{4}/, { error: "A valid Singapore phone number is required."}),
+    .regex(/(?:\+?65\s?)?[3689]\d{3}\s?\d{4}/, { error: "A valid Singapore phone number is required."}),
   deleted: z.boolean().default(false)
 });
 
