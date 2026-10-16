@@ -35,6 +35,7 @@ jobs:
 
   deploy_vercel_preview:
     name: Deploy to Vercel (Preview/Staging)
+    needs: run_unit_tests
     runs-on: ubuntu-latest
     steps:
       - name: Check out the code
