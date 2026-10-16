@@ -129,6 +129,30 @@ describe("UserController", () => {
       expect(mockUserService.add).not.toHaveBeenCalled();
     });
 
+    it("should return 400 if email fails Zod validation", async () => {
+      mockRequest.body = { ...validPayload, email: "not-an-email" };
+
+      await userController.add(mockRequest as Request, mockResponse as Response);
+
+      expect(mockResponse.status).toHaveBeenCalledWith(400);
+      expect(mockResponse.json).toHaveBeenCalledWith(
+        expect.objectContaining({ message: "Validation failed" })
+      );
+      expect(mockUserService.add).not.toHaveBeenCalled();
+    });
+
+    it("should return 400 if phone number fails Zod validation", async () => {
+      mockRequest.body = { ...validPayload, phone_number: "+65 8123456" };
+
+      await userController.add(mockRequest as Request, mockResponse as Response);
+
+      expect(mockResponse.status).toHaveBeenCalledWith(400);
+      expect(mockResponse.json).toHaveBeenCalledWith(
+        expect.objectContaining({ message: "Validation failed" })
+      );
+      expect(mockUserService.add).not.toHaveBeenCalled();
+    });
+
     it("should return 500 if an unknown error occurs during creation", async () => {
       mockRequest.body = validPayload;
       vi.mocked(mockUserService.add).mockRejectedValue(new Error("Database failed"));
