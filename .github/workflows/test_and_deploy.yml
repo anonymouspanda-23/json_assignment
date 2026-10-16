@@ -1,0 +1,30 @@
+name: test_and_deploy.yml
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  run_unit_tests:
+    name: Run Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the code.
+        uses: actions/checkout@v4.2.1
+
+      - name: Set up PNPM.
+        uses: pnpm/setup@v1
+        with:
+          version: 11
+          runtime: node@26
+          cache: true
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run Vitest
+        run: pnpm test
