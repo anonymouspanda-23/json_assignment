@@ -3,10 +3,10 @@ name: test_and_deploy.yml
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   run_unit_tests:
