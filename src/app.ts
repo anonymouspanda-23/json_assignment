@@ -5,8 +5,9 @@ import { UserController } from "./modules/users/userController.ts";
 import { userRoutes } from "./modules/users/userRoutes.ts";
 import { requestLogger } from "./shared/middlewares/logger.ts";
 
+const PORT = process.env.PORT || 3000;
+
 const app: Express = express();
-const port = process.env.PORT || 3000;
 
 // Enable logging to console
 app.use(requestLogger);
@@ -22,10 +23,14 @@ try {
 
   app.use("/users", userRoutes(userController));
 
-  app.listen(port, () => {
-    console.log(`Listening on port ${port}`);
-  })
+  if (!process.env.VERCEL) {
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
+  }
 } catch (e) {
   console.error(`Failed to initialize application. Reason: ${e}`);
   process.exit(1);
 }
+
+export default app;

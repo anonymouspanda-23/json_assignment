@@ -1,0 +1,9 @@
+{
+  "buildCommand": "echo \"Backend only, skipping static frontend build\"",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api"
+    }
+  ]
+}
